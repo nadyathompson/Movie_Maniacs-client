@@ -6,7 +6,7 @@ export const MainView = () => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    fetch(" ")
+    fetch("https://movie-maniacs.herokuapp.com")
       .then((response) => response.json())
       .then((data) => {
         const moviesFromApi = data.map((movie) => {
