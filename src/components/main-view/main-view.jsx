@@ -6,17 +6,17 @@ export const MainView = () => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    fetch("https://movie-maniacs.herokuapp.com/movies")
+    fetch('https://movie-maniacs.herokuapp.com/movies')
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         const moviesFromApi = data.map((movie) => {
           return {
-            id: movie._id,
-            title: movie.Title,
-            image: movie.ImagePath,
-            director: movie.director,
+            _id: movie._id,
+            Title: movie.Title,
+            Image: movie.ImagePath,   
+            Director: movie.Director.Name,
             Description: movie.Description,
-            Year: movie.Year,
             Genre: {
               name: movie.Genre.Name,
               description: movie.Genre.Description,
@@ -24,14 +24,12 @@ export const MainView = () => {
             Featured: movie.Featured
           };
         });
-
         setMovies(moviesFromApi);
       })
       .catch((error) => {
         console.log('Error fetching movies: ', error);
       });
   }, []);
-
 
   const [selectedMovie, setSelectedMovie] = useState(null);
 

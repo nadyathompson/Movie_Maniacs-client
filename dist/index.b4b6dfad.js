@@ -27295,14 +27295,14 @@ const MainView = ()=>{
     const [movies, setMovies] = (0, _react.useState)([]);
     (0, _react.useEffect)(()=>{
         fetch("https://movie-maniacs.herokuapp.com/movies").then((response)=>response.json()).then((data)=>{
+            console.log(data);
             const moviesFromApi = data.map((movie)=>{
                 return {
-                    id: movie._id,
-                    title: movie.Title,
-                    image: movie.ImagePath,
-                    director: movie.director,
+                    _id: movie._id,
+                    Title: movie.Title,
+                    Image: movie.ImagePath,
+                    Director: movie.Director.Name,
                     Description: movie.Description,
-                    Year: movie.Year,
                     Genre: {
                         name: movie.Genre.Name,
                         description: movie.Genre.Description
@@ -27321,14 +27321,14 @@ const MainView = ()=>{
         onBackClick: ()=>setSelectedMovie(null)
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 40,
+        lineNumber: 38,
         columnNumber: 7
     }, undefined);
     if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: "The list is empty!"
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 45,
+        lineNumber: 43,
         columnNumber: 12
     }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27339,12 +27339,12 @@ const MainView = ()=>{
                 }
             }, movie.id, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 51,
+                lineNumber: 49,
                 columnNumber: 9
             }, undefined))
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 49,
+        lineNumber: 47,
         columnNumber: 5
     }, undefined);
 };
