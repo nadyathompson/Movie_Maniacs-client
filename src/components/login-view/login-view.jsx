@@ -1,11 +1,56 @@
 import { useState } from "react";
+import axios from "axios";
 
-export const LoginView = ({ onLoggedIn }) => {
+export function LoginView(props) {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [usernameErr, setUsernameErr] = useState('');
+  const [passwordErr, setPasswordErr] = useState('');
+
+  const validation = () => {
+    let isReq = true;
+    if (!username) {
+      setUsernameErr('Username required.');
+      isReq = false;
+    } else if (username.length < 2) {
+      setUsernameErr('Username must be 2 characters long');
+      isReq = false;
+    }
+    if (!password) {
+      setPasswordErr('Password required.');
+      isReq = false;
+    } else if (password.length < 6) {
+      setPasswordErr('Password must be 6 characters long');
+      isReq = false;
+    }
+    return isReq;
+  };
+
+/*export const LoginView = ({ onLoggedIn }) => {
   const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState("");*/
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const isReq = validation();
+    if (isReq) {
+      axios
+        .post('https://movie-maniacs.herokuapp.com/login', {
+          Username: username,
+          Password: password,
+        })
+        .then((response) => {
+          const data = response.data;
+          props.onLoggedIn(data);
+        })
+        .catch((e) => {
+          console.log('no such user');
+        });
+    }
+  };
 
   // validation of user login
-  const handleSubmit = (event) => {
+  /*const handleSubmit = (event) => {
     // prevents the default behavior of the form (so it doesn't reload the entire page)
     event.preventDefault();
 
@@ -36,7 +81,7 @@ export const LoginView = ({ onLoggedIn }) => {
     .catch((e) => {
       alert("Something went wrong");
     });
-  };
+  };*/
 
   // login form with submit button
   return (
