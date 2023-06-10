@@ -28436,7 +28436,7 @@ function LoginView(props) {
     const handleSubmit = (e)=>{
         e.preventDefault();
         const isReq = validation();
-        const url = "https://movie-maniacs.herokuapp.com/login?Username=${username}&Password={password}";
+        const url = `https://movie-maniacs.herokuapp.com/login?Username=${username}&Password=${password}`;
         if (isReq) (0, _axiosDefault.default).post(url).then((response)=>{
             const data = response.data;
             props.onLoggedIn(data);

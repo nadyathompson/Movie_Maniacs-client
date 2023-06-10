@@ -29,7 +29,7 @@ export function LoginView(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const isReq = validation();
-    const url = 'https://movie-maniacs.herokuapp.com/login?Username=${username}&Password={password}'
+    const url = `https://movie-maniacs.herokuapp.com/login?Username=${username}&Password=${password}`
     if (isReq) {
       axios
         .post(url)
