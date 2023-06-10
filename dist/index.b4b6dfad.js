@@ -28433,22 +28433,27 @@ function LoginView(props) {
         }
         return isReq;
     };
-    /*export const LoginView = ({ onLoggedIn }) => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");*/ const handleSubmit = (e)=>{
+    const handleSubmit = (e)=>{
         e.preventDefault();
         const isReq = validation();
-        if (isReq) (0, _axiosDefault.default).post("https://movie-maniacs.herokuapp.com/login", {
-            Username: username,
-            Password: password
-        }).then((response)=>{
+        const url = "https://movie-maniacs.herokuapp.com/login?Username=${username}&Password={password}";
+        if (isReq) (0, _axiosDefault.default).post(url).then((response)=>{
             const data = response.data;
             props.onLoggedIn(data);
-        }).catch((e)=>{
+        })/*.post(url, {
+          Username: username,
+          Password: password,
+        })
+        .then((response) => {
+          const data = response.data;
+          props.onLoggedIn(data);
+        })*/ .catch((e)=>{
             console.log("no such user");
         });
     };
-    // validation of user login
+    /*export const LoginView = ({ onLoggedIn }) => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");*/ // validation of user login
     /*const handleSubmit = (event) => {
     // prevents the default behavior of the form (so it doesn't reload the entire page)
     event.preventDefault();
@@ -28496,13 +28501,13 @@ function LoginView(props) {
                         minLength: "5"
                     }, void 0, false, {
                         fileName: "src/components/login-view/login-view.jsx",
-                        lineNumber: 92,
+                        lineNumber: 98,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/components/login-view/login-view.jsx",
-                lineNumber: 90,
+                lineNumber: 96,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -28515,13 +28520,13 @@ function LoginView(props) {
                         required: true
                     }, void 0, false, {
                         fileName: "src/components/login-view/login-view.jsx",
-                        lineNumber: 102,
+                        lineNumber: 108,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/components/login-view/login-view.jsx",
-                lineNumber: 100,
+                lineNumber: 106,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -28529,13 +28534,13 @@ function LoginView(props) {
                 children: "Submit"
             }, void 0, false, {
                 fileName: "src/components/login-view/login-view.jsx",
-                lineNumber: 109,
+                lineNumber: 115,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/components/login-view/login-view.jsx",
-        lineNumber: 89,
+        lineNumber: 95,
         columnNumber: 5
     }, this));
 }

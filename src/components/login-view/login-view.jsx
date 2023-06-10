@@ -26,28 +26,34 @@ export function LoginView(props) {
     return isReq;
   };
 
-/*export const LoginView = ({ onLoggedIn }) => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");*/
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const isReq = validation();
+    const url = 'https://movie-maniacs.herokuapp.com/login?Username=${username}&Password={password}'
     if (isReq) {
       axios
-        .post('https://movie-maniacs.herokuapp.com/login', {
+        .post(url)
+        .then((response) => {
+          const data = response.data;
+          props.onLoggedIn(data);
+        })
+        /*.post(url, {
           Username: username,
           Password: password,
         })
         .then((response) => {
           const data = response.data;
           props.onLoggedIn(data);
-        })
+        })*/
         .catch((e) => {
           console.log('no such user');
         });
     }
   };
+
+  /*export const LoginView = ({ onLoggedIn }) => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");*/
 
   // validation of user login
   /*const handleSubmit = (event) => {
