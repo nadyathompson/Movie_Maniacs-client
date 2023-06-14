@@ -2958,9 +2958,9 @@ $RefreshReg$(_c, "Application");
 }
 },{"react/jsx-dev-runtime":"iTorj","react-dom/client":"lOjBx","./index.scss":"lJZlQ","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4BbEJ","./components/main-view/main-view":"4gflv"}],"iTorj":[function(require,module,exports) {
 "use strict";
-module.exports = require("13f3bca08ed8fbf2");
+module.exports = require("5fc82f07735b6f9e");
 
-},{"13f3bca08ed8fbf2":"48uCM"}],"48uCM":[function(require,module,exports) {
+},{"5fc82f07735b6f9e":"48uCM"}],"48uCM":[function(require,module,exports) {
 /**
  * @license React
  * react-jsx-dev-runtime.development.js
@@ -2972,7 +2972,7 @@ module.exports = require("13f3bca08ed8fbf2");
  */ "use strict";
 (function() {
     "use strict";
-    var React = require("e0a1a149cc1f86fd");
+    var React = require("236c46091a32d011");
     // ATTENTION
     // When adding new symbols to this file,
     // Please consider also adding to 'react-devtools-shared/src/backend/ReactSymbols'
@@ -3791,11 +3791,11 @@ module.exports = require("13f3bca08ed8fbf2");
     exports.jsxDEV = jsxDEV$1;
 })();
 
-},{"e0a1a149cc1f86fd":"21dqq"}],"21dqq":[function(require,module,exports) {
+},{"236c46091a32d011":"21dqq"}],"21dqq":[function(require,module,exports) {
 "use strict";
-module.exports = require("26b7af27c6915d09");
+module.exports = require("ef66f8adebde947c");
 
-},{"26b7af27c6915d09":"6YvXz"}],"6YvXz":[function(require,module,exports) {
+},{"ef66f8adebde947c":"6YvXz"}],"6YvXz":[function(require,module,exports) {
 /**
  * @license React
  * react.development.js
@@ -5663,7 +5663,7 @@ module.exports = require("26b7af27c6915d09");
 
 },{}],"lOjBx":[function(require,module,exports) {
 "use strict";
-var m = require("79eb0f429421ebf2");
+var m = require("a9a87daf8ca147b6");
 var i = m.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
 exports.createRoot = function(c, o) {
     i.usingClientEntryPoint = true;
@@ -5682,7 +5682,7 @@ exports.hydrateRoot = function(c, h, o) {
     }
 };
 
-},{"79eb0f429421ebf2":"j6uA9"}],"j6uA9":[function(require,module,exports) {
+},{"a9a87daf8ca147b6":"j6uA9"}],"j6uA9":[function(require,module,exports) {
 "use strict";
 function checkDCE() {
     /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === "undefined" || typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE !== "function") return;
@@ -5696,9 +5696,9 @@ function checkDCE() {
     // a false positive.
     throw new Error("^_^");
 }
-module.exports = require("a1e403d5767e2099");
+module.exports = require("b147de3357d9c23b");
 
-},{"a1e403d5767e2099":"3iA9v"}],"3iA9v":[function(require,module,exports) {
+},{"b147de3357d9c23b":"3iA9v"}],"3iA9v":[function(require,module,exports) {
 /**
  * @license React
  * react-dom.development.js
@@ -5711,8 +5711,8 @@ module.exports = require("a1e403d5767e2099");
 (function() {
     "use strict";
     /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
-    var React = require("e6f54e2e693743ec");
-    var Scheduler = require("ba7986ddde15471");
+    var React = require("1c8bdcf703e94f5e");
+    var Scheduler = require("65cb9e477c4a10e8");
     var ReactSharedInternals = React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
     var suppressWarning = false;
     function setSuppressWarning(newSuppressWarning) {
@@ -26683,11 +26683,11 @@ module.exports = require("a1e403d5767e2099");
     /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop === "function") __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(new Error());
 })();
 
-},{"e6f54e2e693743ec":"21dqq","ba7986ddde15471":"juvHo"}],"juvHo":[function(require,module,exports) {
+},{"1c8bdcf703e94f5e":"21dqq","65cb9e477c4a10e8":"juvHo"}],"juvHo":[function(require,module,exports) {
 "use strict";
-module.exports = require("ede7ab5eab33421d");
+module.exports = require("168ecde17798d5b8");
 
-},{"ede7ab5eab33421d":"RqdIf"}],"RqdIf":[function(require,module,exports) {
+},{"168ecde17798d5b8":"RqdIf"}],"RqdIf":[function(require,module,exports) {
 /**
  * @license React
  * scheduler.development.js
@@ -27286,175 +27286,163 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "MainView", ()=>MainView);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
-var _movieCard = require("../movie-card/movie-card");
-var _movieView = require("../movie-view/movie-view");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _loginView = require("../login-view/login-view");
 var _signupView = require("../signup-view/signup-view");
-var _s = $RefreshSig$();
-const MainView = ()=>{
-    _s();
-    const storedUser = JSON.parse(localStorage.getItem("user"));
-    const storedToken = localStorage.getItem("token");
-    const [user, setUser] = (0, _react.useState)(storedUser ? storedUser : null);
-    const [token, setToken] = (0, _react.useState)(storedToken ? storedToken : null);
-    const [movies, setMovies] = (0, _react.useState)([]);
-    const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
-    const [loading, setLoading] = (0, _react.useState)(false);
-    (0, _react.useEffect)(()=>{
-        if (!token) return;
-        // set loading before sending API request
-        setLoading(true);
-        fetch("https://movie-maniacs.herokuapp.com/movies", {
+var _movieCard = require("../movie-card/movie-card");
+var _movieView = require("../movie-view/movie-view");
+class MainView extends (0, _reactDefault.default).Component {
+    constructor(){
+        super();
+        this.state = {
+            movies: [],
+            selectedMovie: null,
+            user: null,
+            //step: 'login',
+            step: "signup"
+        };
+    }
+    componentDidMount() {
+        let accessToken = localStorage.getItem("token");
+        let user = localStorage.getItem("user");
+        if (accessToken && user) {
+            this.setState({
+                step: "app",
+                user
+            });
+            this.getMovies(accessToken);
+        } else this.setState({
+            step: "login"
+        });
+    }
+    setSelectedMovie(newSelectedMovie) {
+        this.setState({
+            selectedMovie: newSelectedMovie
+        });
+    }
+    onLoggedIn(authData) {
+        console.log(authData);
+        this.setState({
+            user: authData.user.Username,
+            step: "app"
+        });
+        localStorage.setItem("token", authData.token);
+        localStorage.setItem("user", authData.user.Username);
+        this.getMovies(authData.token);
+    }
+    onLoggedOut() {
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+        this.setState({
+            user: null,
+            step: "login"
+        });
+    }
+    getMovies(token) {
+        (0, _axiosDefault.default).get("https://movie-maniacs.herokuapp.com/movies", {
             headers: {
                 Authorization: `Bearer ${token}`
             }
-        }).then((response)=>response.json()).then((data)=>{
-            // stops loading after response received
-            setLoading(false);
-            console.log("data", data);
-            const moviesFromApi = data.map((movie)=>{
-                return {
-                    // value names match to API database
-                    id: movie._id,
-                    title: movie.Title,
-                    image: movie.ImagePath,
-                    description: movie.Description,
-                    genre: movie.Genre.Name,
-                    director: movie.Director.Name,
-                    release: movie.Release
-                };
+        }).then((response)=>{
+            // Assign the result to the state
+            this.setState({
+                movies: response.data
             });
-            setMovies(moviesFromApi);
+        }).catch(function(error) {
+            console.log(error);
         });
-    }, [
-        token
-    ]);
-    // user must first either login or signup
-    if (!user) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginView.LoginView), {
-                onLoggedIn: (user, token)=>{
-                    setUser(user);
-                    setToken(token);
-                }
-            }, void 0, false, {
-                fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 50,
-                columnNumber: 9
-            }, undefined),
-            "or",
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _signupView.SignupView), {}, void 0, false, {
-                fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 55,
-                columnNumber: 9
-            }, undefined)
-        ]
-    }, void 0, true);
-    //const [selectedMovie, setSelectedMovie] = useState(null);
-    if (selectedMovie) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                onClick: ()=>{
-                    setUser(null);
-                    setToken(null);
-                    localStorage.clear();
-                },
-                children: " Logout "
-            }, void 0, false, {
-                fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 64,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
-                movie: selectedMovie,
-                onBackClick: ()=>setSelectedMovie(null)
-            }, void 0, false, {
-                fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 70,
-                columnNumber: 7
-            }, undefined)
-        ]
-    }, void 0, true);
-    // displays text message if list of movies is empty
-    if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                onClick: ()=>{
-                    setUser(null);
-                    setToken(null);
-                    localStorage.clear();
-                },
-                children: " Logout "
-            }, void 0, false, {
-                fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 79,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                children: "The list is empty!"
-            }, void 0, false, {
-                fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 85,
-                columnNumber: 7
-            }, undefined)
-        ]
-    }, void 0, true);
-    // displays movie-card with logout button, if user does not select a movie 
-    return(// conditional rendering for loading statment
-    loading ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-        children: "Loading..."
-    }, void 0, false, {
-        fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 94,
-        columnNumber: 7
-    }, undefined) : !movies || !movies.length ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-        children: "No movies found"
-    }, void 0, false, {
-        fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 96,
-        columnNumber: 7
-    }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                onClick: ()=>{
-                    setUser(null);
-                    setToken(null);
-                    localStorage.clear();
-                },
-                children: " Logout "
-            }, void 0, false, {
-                fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 99,
-                columnNumber: 7
-            }, undefined),
-            movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
-                    movie: movie,
-                    onMovieClick: (newSelectedMovie)=>{
-                        setSelectedMovie(newSelectedMovie);
-                    }
-                }, movie._id, false, {
+    }
+    toSignup() {
+        this.setState({
+            step: "signup"
+        });
+    }
+    toLogin() {
+        this.setState({
+            step: "login"
+        });
+    }
+    onSignup(newUser) {
+        this.setState({
+            step: "app",
+            user: newUser
+        });
+    }
+    render() {
+        const { movies , selectedMovie , user , step  } = this.state;
+        if (step === "login") return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginView.LoginView), {
+            onLoggedIn: (authData)=>this.onLoggedIn(authData),
+            toSignup: ()=>this.toSignup()
+        }, void 0, false, {
+            fileName: "src/components/main-view/main-view.jsx",
+            lineNumber: 101,
+            columnNumber: 7
+        }, this);
+        if (step === "signup") return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _signupView.SignupView), {
+            onSignup: (signup)=>this.onSignup(signup),
+            toLogin: ()=>this.toLogin()
+        }, void 0, false, {
+            fileName: "src/components/main-view/main-view.jsx",
+            lineNumber: 108,
+            columnNumber: 7
+        }, this);
+        if (!user) return null;
+        if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "main-view",
+            children: "The list is empty!"
+        }, void 0, false, {
+            fileName: "src/components/main-view/main-view.jsx",
+            lineNumber: 117,
+            columnNumber: 12
+        }, this);
+        return(// conditional rendering for loading statment
+        /*loading ? (
+        <p>Loading...</p>
+      ) : !movies || !movies.length ? (
+        <p>No movies found</p>
+      ) : (
+        <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)}/>
+        */ /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                    onClick: ()=>{
+                        this.onLoggedOut();
+                        localStorage.clear();
+                    },
+                    children: " Logout "
+                }, void 0, false, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 107,
+                    lineNumber: 129,
                     columnNumber: 9
-                }, undefined))
-        ]
-    }, void 0, true, {
-        fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 98,
-        columnNumber: 5
-    }, undefined));
-};
-_s(MainView, "CPZ90wseP+bVOPdxYkPMi396Gvw=");
-_c = MainView;
-var _c;
-$RefreshReg$(_c, "MainView");
+                }, this),
+                movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
+                        movie: movie,
+                        onMovieClick: (movie)=>{
+                            this.setSelectedMovie(movie);
+                            console.log(selectedMovie);
+                        }
+                    }, movie._id, false, {
+                        fileName: "src/components/main-view/main-view.jsx",
+                        lineNumber: 136,
+                        columnNumber: 11
+                    }, this))
+            ]
+        }, void 0, true, {
+            fileName: "src/components/main-view/main-view.jsx",
+            lineNumber: 128,
+            columnNumber: 7
+        }, this));
+    }
+}
 
   $parcel$ReactRefreshHelpers$f7a6.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../movie-card/movie-card":"bwuIu","@parcel/transformer-js/src/esmodule-helpers.js":"2JGy1","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4BbEJ","../movie-view/movie-view":"ggaUx","../login-view/login-view":"9YtA0","../signup-view/signup-view":"4OGiN"}],"bwuIu":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../movie-card/movie-card":"bwuIu","@parcel/transformer-js/src/esmodule-helpers.js":"2JGy1","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4BbEJ","../movie-view/movie-view":"ggaUx","../login-view/login-view":"9YtA0","axios":"jo6P5","../signup-view/signup-view":"4OGiN"}],"bwuIu":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$67b2 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -27485,9 +27473,10 @@ MovieCard.propTypes = {
         _id: (0, _propTypesDefault.default).string.isRequired,
         Title: (0, _propTypesDefault.default).string.isRequired,
         ImagePath: (0, _propTypesDefault.default).string.isRequired,
-        Director: (0, _propTypesDefault.default).string.isRequired,
+        Director: (0, _propTypesDefault.default).object.isRequired,
         Description: (0, _propTypesDefault.default).string.isRequired,
-        Genre: (0, _propTypesDefault.default).arrayOf((0, _propTypesDefault.default).string).isRequired,
+        Genre: (0, _propTypesDefault.default).object.isRequired,
+        //Genre: PropTypes.arrayOf(PropTypes.string).isRequired,
         Featured: (0, _propTypesDefault.default).bool.isRequired
     }).isRequired,
     onMovieClick: (0, _propTypesDefault.default).func.isRequired
@@ -27536,17 +27525,17 @@ exports.export = function(dest, destName, get) {
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
- */ var ReactIs = require("1ddb95003d14c3ee");
+ */ var ReactIs = require("be659fe5c2739fdb");
 // By explicitly using `prop-types` you are opting into new development behavior.
 // http://fb.me/prop-types-in-prod
 var throwOnDirectAccess = true;
-module.exports = require("3a00e88403108d7")(ReactIs.isElement, throwOnDirectAccess);
+module.exports = require("c9dca05af71633be")(ReactIs.isElement, throwOnDirectAccess);
 
-},{"1ddb95003d14c3ee":"7EuwB","3a00e88403108d7":"bBUgD"}],"7EuwB":[function(require,module,exports) {
+},{"be659fe5c2739fdb":"7EuwB","c9dca05af71633be":"bBUgD"}],"7EuwB":[function(require,module,exports) {
 "use strict";
-module.exports = require("d1b56c09e24a2f8e");
+module.exports = require("ceb943c5961fd8c6");
 
-},{"d1b56c09e24a2f8e":"5DsXl"}],"5DsXl":[function(require,module,exports) {
+},{"ceb943c5961fd8c6":"5DsXl"}],"5DsXl":[function(require,module,exports) {
 /** @license React v16.13.1
  * react-is.development.js
  *
@@ -27710,11 +27699,11 @@ module.exports = require("d1b56c09e24a2f8e");
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */ "use strict";
-var ReactIs = require("3f155e0503b5e71");
-var assign = require("806995c84ebff4af");
-var ReactPropTypesSecret = require("caf0b16425f1e283");
-var has = require("da70dd77e8ac5928");
-var checkPropTypes = require("9448a0c91087630");
+var ReactIs = require("51a7f65041407a8a");
+var assign = require("3a335b9e81f3ec72");
+var ReactPropTypesSecret = require("78ce14c8a99adc68");
+var has = require("b19413059ac387ce");
+var checkPropTypes = require("4786346b2b277db");
 var printWarning = function() {};
 printWarning = function(text) {
     var message = "Warning: " + text;
@@ -28141,7 +28130,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
     return ReactPropTypes;
 };
 
-},{"3f155e0503b5e71":"7EuwB","806995c84ebff4af":"7OXxh","caf0b16425f1e283":"jZTZJ","da70dd77e8ac5928":"fqKuf","9448a0c91087630":"5VwyJ"}],"7OXxh":[function(require,module,exports) {
+},{"51a7f65041407a8a":"7EuwB","3a335b9e81f3ec72":"7OXxh","78ce14c8a99adc68":"jZTZJ","b19413059ac387ce":"fqKuf","4786346b2b277db":"5VwyJ"}],"7OXxh":[function(require,module,exports) {
 /*
 object-assign
 (c) Sindre Sorhus
@@ -28217,9 +28206,9 @@ module.exports = Function.call.bind(Object.prototype.hasOwnProperty);
  * LICENSE file in the root directory of this source tree.
  */ "use strict";
 var printWarning = function() {};
-var ReactPropTypesSecret = require("692b0c97712af4c4");
+var ReactPropTypesSecret = require("3263f756c027f3fa");
 var loggedTypeFailures = {};
-var has = require("766f22c12b9e9892");
+var has = require("2bdbf13532e9300a");
 printWarning = function(text) {
     var message = "Warning: " + text;
     if (typeof console !== "undefined") console.error(message);
@@ -28277,7 +28266,7 @@ printWarning = function(text) {
 };
 module.exports = checkPropTypes;
 
-},{"692b0c97712af4c4":"jZTZJ","766f22c12b9e9892":"fqKuf"}],"ggaUx":[function(require,module,exports) {
+},{"3263f756c027f3fa":"jZTZJ","2bdbf13532e9300a":"fqKuf"}],"ggaUx":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$e9f6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -28292,38 +28281,25 @@ const MovieView = ({ movie , onBackClick  })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                    src: movie.ImageURL
-                }, void 0, false, {
-                    fileName: "src/components/movie-view/movie-view.jsx",
-                    lineNumber: 5,
-                    columnNumber: 17
-                }, undefined)
-            }, void 0, false, {
-                fileName: "src/components/movie-view/movie-view.jsx",
-                lineNumber: 4,
-                columnNumber: 13
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                         children: "Title: "
                     }, void 0, false, {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 8,
+                        lineNumber: 5,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                         children: movie.Title
                     }, void 0, false, {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 9,
+                        lineNumber: 6,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/movie-view/movie-view.jsx",
-                lineNumber: 7,
+                lineNumber: 4,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28332,20 +28308,20 @@ const MovieView = ({ movie , onBackClick  })=>{
                         children: "Director: "
                     }, void 0, false, {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 12,
+                        lineNumber: 9,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                        children: movie.Director
+                        children: movie.Director.Name
                     }, void 0, false, {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 13,
+                        lineNumber: 10,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/movie-view/movie-view.jsx",
-                lineNumber: 11,
+                lineNumber: 8,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28354,20 +28330,20 @@ const MovieView = ({ movie , onBackClick  })=>{
                         children: "Description: "
                     }, void 0, false, {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 16,
+                        lineNumber: 13,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                         children: movie.Description
                     }, void 0, false, {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 17,
+                        lineNumber: 14,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/movie-view/movie-view.jsx",
-                lineNumber: 15,
+                lineNumber: 12,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -28375,7 +28351,7 @@ const MovieView = ({ movie , onBackClick  })=>{
                 children: "Back"
             }, void 0, false, {
                 fileName: "src/components/movie-view/movie-view.jsx",
-                lineNumber: 20,
+                lineNumber: 17,
                 columnNumber: 13
             }, undefined)
         ]
@@ -28440,52 +28416,11 @@ function LoginView(props) {
         if (isReq) (0, _axiosDefault.default).post(url).then((response)=>{
             const data = response.data;
             props.onLoggedIn(data);
-        })/*.post(url, {
-          Username: username,
-          Password: password,
-        })
-        .then((response) => {
-          const data = response.data;
-          props.onLoggedIn(data);
-        })*/ .catch((e)=>{
+        }).catch((e)=>{
             console.log("no such user");
         });
     };
-    /*export const LoginView = ({ onLoggedIn }) => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");*/ // validation of user login
-    /*const handleSubmit = (event) => {
-    // prevents the default behavior of the form (so it doesn't reload the entire page)
-    event.preventDefault();
-
-    const data = {
-      Username: username,
-      Password: password
-    };
-
-    fetch("https://movie-maniacs.herokuapp.com/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(data)
-    })
-
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("Login response:", data);
-      if (data.user) {
-        localStorage.setItem("user", JSON.stringify(data.user));
-        localStorage.setItem("token", data.token);
-        onLoggedIn(data.user, data.token);
-      } else {
-        alert("No such user");
-      }
-    })
-    .catch((e) => {
-      alert("Something went wrong");
-    });
-  };*/ // login form with submit button
+    // login form with submit button
     return(// tells the login API to validate user and password
     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
         onSubmit: handleSubmit,
@@ -28501,13 +28436,13 @@ function LoginView(props) {
                         minLength: "5"
                     }, void 0, false, {
                         fileName: "src/components/login-view/login-view.jsx",
-                        lineNumber: 98,
+                        lineNumber: 52,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/components/login-view/login-view.jsx",
-                lineNumber: 96,
+                lineNumber: 50,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -28520,13 +28455,13 @@ function LoginView(props) {
                         required: true
                     }, void 0, false, {
                         fileName: "src/components/login-view/login-view.jsx",
-                        lineNumber: 108,
+                        lineNumber: 62,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/components/login-view/login-view.jsx",
-                lineNumber: 106,
+                lineNumber: 60,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -28534,13 +28469,13 @@ function LoginView(props) {
                 children: "Submit"
             }, void 0, false, {
                 fileName: "src/components/login-view/login-view.jsx",
-                lineNumber: 115,
+                lineNumber: 69,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/components/login-view/login-view.jsx",
-        lineNumber: 95,
+        lineNumber: 49,
         columnNumber: 5
     }, this));
 }
@@ -29504,7 +29439,7 @@ var _axiosErrorJsDefault = parcelHelpers.interopDefault(_axiosErrorJs);
 // temporary hotfix to avoid circular references until AxiosURLSearchParams is refactored
 var _formDataJs = require("../platform/node/classes/FormData.js");
 var _formDataJsDefault = parcelHelpers.interopDefault(_formDataJs);
-var Buffer = require("d513e83a4045f64f").Buffer;
+var Buffer = require("2ba1aebed56e54b5").Buffer;
 "use strict";
 /**
  * Determines if the given thing is a array or js object.
@@ -29659,15 +29594,15 @@ const predicates = (0, _utilsJsDefault.default).toFlatObject((0, _utilsJsDefault
 }
 exports.default = toFormData;
 
-},{"d513e83a4045f64f":"fCgem","../utils.js":"5By4s","../core/AxiosError.js":"3u8Tl","../platform/node/classes/FormData.js":"aFlee","@parcel/transformer-js/src/esmodule-helpers.js":"2JGy1"}],"fCgem":[function(require,module,exports) {
+},{"2ba1aebed56e54b5":"fCgem","../utils.js":"5By4s","../core/AxiosError.js":"3u8Tl","../platform/node/classes/FormData.js":"aFlee","@parcel/transformer-js/src/esmodule-helpers.js":"2JGy1"}],"fCgem":[function(require,module,exports) {
 /*!
  * The buffer module from node.js, for the browser.
  *
  * @author   Feross Aboukhadijeh <https://feross.org>
  * @license  MIT
  */ /* eslint-disable no-proto */ "use strict";
-var base64 = require("8672f987367017cd");
-var ieee754 = require("3ab975c8274f1420");
+var base64 = require("857c4a1192e4a17d");
+var ieee754 = require("29379ff8c3c9e250");
 var customInspectSymbol = typeof Symbol === "function" && typeof Symbol["for"] === "function" // eslint-disable-line dot-notation
  ? Symbol["for"]("nodejs.util.inspect.custom") // eslint-disable-line dot-notation
  : null;
@@ -30889,7 +30824,7 @@ var hexSliceLookupTable = function() {
     return table;
 }();
 
-},{"8672f987367017cd":"eIiSV","3ab975c8274f1420":"cO95r"}],"eIiSV":[function(require,module,exports) {
+},{"857c4a1192e4a17d":"eIiSV","29379ff8c3c9e250":"cO95r"}],"eIiSV":[function(require,module,exports) {
 "use strict";
 exports.byteLength = byteLength;
 exports.toByteArray = toByteArray;
