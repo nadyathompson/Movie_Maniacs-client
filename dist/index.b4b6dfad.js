@@ -27285,164 +27285,200 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "MainView", ()=>MainView);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
-var _loginView = require("../login-view/login-view");
-var _signupView = require("../signup-view/signup-view");
+var _react = require("react");
 var _movieCard = require("../movie-card/movie-card");
 var _movieView = require("../movie-view/movie-view");
-class MainView extends (0, _reactDefault.default).Component {
-    constructor(){
-        super();
-        this.state = {
-            movies: [],
-            selectedMovie: null,
-            user: null,
-            //step: 'login',
-            step: "signup"
-        };
-    }
-    componentDidMount() {
-        let accessToken = localStorage.getItem("token");
-        let user = localStorage.getItem("user");
-        if (accessToken && user) {
-            this.setState({
-                step: "app",
-                user
-            });
-            this.getMovies(accessToken);
-        } else this.setState({
-            step: "login"
-        });
-    }
-    setSelectedMovie(newSelectedMovie) {
-        this.setState({
-            selectedMovie: newSelectedMovie
-        });
-    }
-    onLoggedIn(authData) {
-        console.log(authData);
-        this.setState({
-            user: authData.user.Username,
-            step: "app"
-        });
-        localStorage.setItem("token", authData.token);
-        localStorage.setItem("user", authData.user.Username);
-        this.getMovies(authData.token);
-    }
-    onLoggedOut() {
-        localStorage.removeItem("token");
-        localStorage.removeItem("user");
-        this.setState({
-            user: null,
-            step: "login"
-        });
-    }
-    getMovies(token) {
-        (0, _axiosDefault.default).get("https://movie-maniacs.herokuapp.com/movies", {
+var _loginView = require("../login-view/login-view");
+var _signupView = require("../signup-view/signup-view");
+var _s = $RefreshSig$();
+const MainView = ()=>{
+    _s();
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    const storedToken = JSON.parse(localStorage.getItem("token"));
+    const [user, setUser] = (0, _react.useState)(storedUser ? storedUser : null);
+    const [token, setToken] = (0, _react.useState)(storedToken ? storedToken : null);
+    const [movies, setMovies] = (0, _react.useState)([]);
+    const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
+    const [loading, setLoading] = (0, _react.useState)(false);
+    console.log(sessionStorage);
+    (0, _react.useEffect)(()=>{
+        setToken(localStorage.getItem("token"));
+    }, [
+        loading
+    ]);
+    (0, _react.useEffect)(()=>{
+        if (!localStorage.getItem("token")) {
+            console.log("wow");
+            return;
+        }
+        // set loading before sending API request
+        setLoading(true);
+        console.log(token);
+        const axios = require("da76dceae681b09a");
+        axios.get("https://movie-maniacs.herokuapp.com/movies", {
             headers: {
                 Authorization: `Bearer ${token}`
             }
         }).then((response)=>{
             // Assign the result to the state
-            this.setState({
-                movies: response.data
-            });
-        }).catch(function(error) {
+            setMovies(response.data);
+        /*this.setState({
+            movies: response.data,
+          });*/ }).catch(function(error) {
             console.log(error);
         });
-    }
-    toSignup() {
-        this.setState({
-            step: "signup"
+    /*fetch("https://movie-maniacs.herokuapp.com/movies", {
+      headers: {Authorization: `Bearer ${token}`}
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // stops loading after response received
+        setLoading(false);
+        console.log('data', data);
+        const moviesFromApi = data.map((movie) => {
+          return {
+          // value names match to API database
+          id: movie._id,
+          title: movie.Title,
+          image: movie.ImagePath,
+          description: movie.Description,
+          genre: movie.Genre.Name,
+          director: movie.Director.Name,
+          release: movie.Release
+          }
         });
-    }
-    toLogin() {
-        this.setState({
-            step: "login"
-        });
-    }
-    onSignup(newUser) {
-        this.setState({
-            step: "app",
-            user: newUser
-        });
-    }
-    render() {
-        const { movies , selectedMovie , user , step  } = this.state;
-        if (step === "login") return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginView.LoginView), {
-            onLoggedIn: (authData)=>this.onLoggedIn(authData),
-            toSignup: ()=>this.toSignup()
-        }, void 0, false, {
-            fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 101,
-            columnNumber: 7
-        }, this);
-        if (step === "signup") return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _signupView.SignupView), {
-            onSignup: (signup)=>this.onSignup(signup),
-            toLogin: ()=>this.toLogin()
-        }, void 0, false, {
-            fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 108,
-            columnNumber: 7
-        }, this);
-        if (!user) return null;
-        if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            className: "main-view",
-            children: "The list is empty!"
-        }, void 0, false, {
-            fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 117,
-            columnNumber: 12
-        }, this);
-        return(// conditional rendering for loading statment
-        /*loading ? (
-        <p>Loading...</p>
-      ) : !movies || !movies.length ? (
-        <p>No movies found</p>
-      ) : (
-        <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)}/>
-        */ /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                    onClick: ()=>{
-                        this.onLoggedOut();
-                        localStorage.clear();
-                    },
-                    children: " Logout "
-                }, void 0, false, {
+        setMovies(moviesFromApi);
+      })*/ }, [
+        token
+    ]);
+    // user must first either login or signup
+    if (!user) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginView.LoginView), {
+                onLoggedIn: (user, token)=>{
+                    setUser(user);
+                    setToken(token);
+                }
+            }, void 0, false, {
+                fileName: "src/components/main-view/main-view.jsx",
+                lineNumber: 75,
+                columnNumber: 9
+            }, undefined),
+            "or",
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _signupView.SignupView), {}, void 0, false, {
+                fileName: "src/components/main-view/main-view.jsx",
+                lineNumber: 80,
+                columnNumber: 9
+            }, undefined)
+        ]
+    }, void 0, true);
+    //const [selectedMovie, setSelectedMovie] = useState(null);
+    if (selectedMovie) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: ()=>{
+                    setUser(null);
+                    setToken(null);
+                    localStorage.clear();
+                },
+                children: " Logout "
+            }, void 0, false, {
+                fileName: "src/components/main-view/main-view.jsx",
+                lineNumber: 89,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
+                movie: selectedMovie,
+                onBackClick: ()=>setSelectedMovie(null)
+            }, void 0, false, {
+                fileName: "src/components/main-view/main-view.jsx",
+                lineNumber: 95,
+                columnNumber: 7
+            }, undefined)
+        ]
+    }, void 0, true);
+    // displays text message if list of movies is empty
+    if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: ()=>{
+                    setUser(null);
+                    setToken(null);
+                    localStorage.clear();
+                },
+                children: " Logout "
+            }, void 0, false, {
+                fileName: "src/components/main-view/main-view.jsx",
+                lineNumber: 104,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: "The list is empty!"
+            }, void 0, false, {
+                fileName: "src/components/main-view/main-view.jsx",
+                lineNumber: 110,
+                columnNumber: 7
+            }, undefined)
+        ]
+    }, void 0, true);
+    // displays movie-card with logout button, if user does not select a movie 
+    return(// conditional rendering for loading statment
+    loading ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+        children: "Loading..."
+    }, void 0, false, {
+        fileName: "src/components/main-view/main-view.jsx",
+        lineNumber: 119,
+        columnNumber: 7
+    }, undefined) : !movies || !movies.length ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+        children: "No movies found"
+    }, void 0, false, {
+        fileName: "src/components/main-view/main-view.jsx",
+        lineNumber: 121,
+        columnNumber: 7
+    }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: ()=>{
+                    setUser(null);
+                    setToken(null);
+                    localStorage.clear();
+                },
+                children: " Logout "
+            }, void 0, false, {
+                fileName: "src/components/main-view/main-view.jsx",
+                lineNumber: 124,
+                columnNumber: 7
+            }, undefined),
+            movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
+                    movie: movie,
+                    onMovieClick: (newSelectedMovie)=>{
+                        setSelectedMovie(newSelectedMovie);
+                    }
+                }, movie._id, false, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 129,
+                    lineNumber: 132,
                     columnNumber: 9
-                }, this),
-                movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
-                        movie: movie,
-                        onMovieClick: (movie)=>{
-                            this.setSelectedMovie(movie);
-                            console.log(selectedMovie);
-                        }
-                    }, movie._id, false, {
-                        fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 136,
-                        columnNumber: 11
-                    }, this))
-            ]
-        }, void 0, true, {
-            fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 128,
-            columnNumber: 7
-        }, this));
-    }
-}
+                }, undefined))
+        ]
+    }, void 0, true, {
+        fileName: "src/components/main-view/main-view.jsx",
+        lineNumber: 123,
+        columnNumber: 5
+    }, undefined));
+};
+_s(MainView, "YMY/gSYIDWU6VdVwD3mwp8XJgSA=");
+_c = MainView;
+var _c;
+$RefreshReg$(_c, "MainView");
 
   $parcel$ReactRefreshHelpers$f7a6.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../movie-card/movie-card":"bwuIu","@parcel/transformer-js/src/esmodule-helpers.js":"2JGy1","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4BbEJ","../movie-view/movie-view":"ggaUx","../login-view/login-view":"9YtA0","axios":"jo6P5","../signup-view/signup-view":"4OGiN"}],"bwuIu":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../movie-card/movie-card":"bwuIu","@parcel/transformer-js/src/esmodule-helpers.js":"2JGy1","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4BbEJ","../movie-view/movie-view":"ggaUx","../login-view/login-view":"9YtA0","../signup-view/signup-view":"4OGiN","axios":"jo6P5","da76dceae681b09a":"jo6P5"}],"bwuIu":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$67b2 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
