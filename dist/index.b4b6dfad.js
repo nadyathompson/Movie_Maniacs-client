@@ -27295,8 +27295,8 @@ var _signupView = require("../signup-view/signup-view");
 var _s = $RefreshSig$();
 const MainView = ()=>{
     _s();
-    const storedUser = JSON.parse(localStorage.getItem("user"));
-    const storedToken = JSON.parse(localStorage.getItem("token"));
+    const storedUser = localStorage.getItem("user") || null;
+    const storedToken = localStorage.getItem("token") || null;
     const [user, setUser] = (0, _react.useState)(storedUser ? storedUser : null);
     const [token, setToken] = (0, _react.useState)(storedToken ? storedToken : null);
     const [movies, setMovies] = (0, _react.useState)([]);
@@ -27304,53 +27304,21 @@ const MainView = ()=>{
     const [loading, setLoading] = (0, _react.useState)(false);
     console.log(sessionStorage);
     (0, _react.useEffect)(()=>{
-        setToken(localStorage.getItem("token"));
-    }, [
-        loading
-    ]);
-    (0, _react.useEffect)(()=>{
-        if (!localStorage.getItem("token")) {
-            console.log("wow");
-            return;
-        }
         // set loading before sending API request
         setLoading(true);
         console.log(token);
-        const axios = require("da76dceae681b09a");
-        axios.get("https://movie-maniacs.herokuapp.com/movies", {
+        (0, _axiosDefault.default).get("https://movie-maniacs.herokuapp.com/movies", {
             headers: {
                 Authorization: `Bearer ${token}`
             }
         }).then((response)=>{
             // Assign the result to the state
             setMovies(response.data);
-        /*this.setState({
-            movies: response.data,
-          });*/ }).catch(function(error) {
+            setLoading(false);
+        }).catch(function(error) {
             console.log(error);
         });
-    /*fetch("https://movie-maniacs.herokuapp.com/movies", {
-      headers: {Authorization: `Bearer ${token}`}
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        // stops loading after response received
-        setLoading(false);
-        console.log('data', data);
-        const moviesFromApi = data.map((movie) => {
-          return {
-          // value names match to API database
-          id: movie._id,
-          title: movie.Title,
-          image: movie.ImagePath,
-          description: movie.Description,
-          genre: movie.Genre.Name,
-          director: movie.Director.Name,
-          release: movie.Release
-          }
-        });
-        setMovies(moviesFromApi);
-      })*/ }, [
+    }, [
         token
     ]);
     // user must first either login or signup
@@ -27363,13 +27331,13 @@ const MainView = ()=>{
                 }
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 75,
+                lineNumber: 41,
                 columnNumber: 9
             }, undefined),
             "or",
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _signupView.SignupView), {}, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 80,
+                lineNumber: 46,
                 columnNumber: 9
             }, undefined)
         ]
@@ -27386,7 +27354,7 @@ const MainView = ()=>{
                 children: " Logout "
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 89,
+                lineNumber: 55,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
@@ -27394,7 +27362,7 @@ const MainView = ()=>{
                 onBackClick: ()=>setSelectedMovie(null)
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 95,
+                lineNumber: 61,
                 columnNumber: 7
             }, undefined)
         ]
@@ -27411,14 +27379,14 @@ const MainView = ()=>{
                 children: " Logout "
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 104,
+                lineNumber: 70,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 children: "The list is empty!"
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 110,
+                lineNumber: 76,
                 columnNumber: 7
             }, undefined)
         ]
@@ -27429,13 +27397,13 @@ const MainView = ()=>{
         children: "Loading..."
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 119,
+        lineNumber: 85,
         columnNumber: 7
     }, undefined) : !movies || !movies.length ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
         children: "No movies found"
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 121,
+        lineNumber: 87,
         columnNumber: 7
     }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: [
@@ -27448,7 +27416,7 @@ const MainView = ()=>{
                 children: " Logout "
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 124,
+                lineNumber: 90,
                 columnNumber: 7
             }, undefined),
             movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
@@ -27458,17 +27426,17 @@ const MainView = ()=>{
                     }
                 }, movie._id, false, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 132,
+                    lineNumber: 98,
                     columnNumber: 9
                 }, undefined))
         ]
     }, void 0, true, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 123,
+        lineNumber: 89,
         columnNumber: 5
     }, undefined));
 };
-_s(MainView, "YMY/gSYIDWU6VdVwD3mwp8XJgSA=");
+_s(MainView, "CPZ90wseP+bVOPdxYkPMi396Gvw=");
 _c = MainView;
 var _c;
 $RefreshReg$(_c, "MainView");
@@ -27478,7 +27446,7 @@ $RefreshReg$(_c, "MainView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../movie-card/movie-card":"bwuIu","@parcel/transformer-js/src/esmodule-helpers.js":"2JGy1","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4BbEJ","../movie-view/movie-view":"ggaUx","../login-view/login-view":"9YtA0","../signup-view/signup-view":"4OGiN","axios":"jo6P5","da76dceae681b09a":"jo6P5"}],"bwuIu":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../movie-card/movie-card":"bwuIu","@parcel/transformer-js/src/esmodule-helpers.js":"2JGy1","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4BbEJ","../movie-view/movie-view":"ggaUx","../login-view/login-view":"9YtA0","../signup-view/signup-view":"4OGiN","axios":"jo6P5"}],"bwuIu":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$67b2 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

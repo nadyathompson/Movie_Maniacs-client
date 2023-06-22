@@ -6,8 +6,9 @@ import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
 
 export const MainView = () => {
-  const storedUser = JSON.parse(localStorage.getItem("user"));
-  const storedToken = JSON.parse(localStorage.getItem("token"));
+  
+  const storedUser = localStorage.getItem("user") || null;
+  const storedToken = localStorage.getItem("token") || null;
   const [user, setUser] = useState(storedUser? storedUser : null);
   const [token, setToken] = useState(storedToken? storedToken : null);
   const [movies, setMovies] = useState([]);
@@ -16,19 +17,9 @@ export const MainView = () => {
 
   console.log(sessionStorage);
   useEffect(() => {
-    setToken(localStorage.getItem("token"));
-  }, [loading])
-
-
-  useEffect(() => {
-    if (!localStorage.getItem("token")) {
-      console.log("wow")
-      return;
-    }
     // set loading before sending API request
     setLoading(true);
     console.log(token)
-      const axios = require('axios');
       axios
         .get('https://movie-maniacs.herokuapp.com/movies', {
           headers: { Authorization: `Bearer ${token}` },
@@ -36,36 +27,11 @@ export const MainView = () => {
         .then((response) => {
           // Assign the result to the state
           setMovies(response.data);
-          /*this.setState({
-            movies: response.data,
-          });*/
+          setLoading(false);
         })
         .catch(function (error) {
           console.log(error);
         });
-
-    /*fetch("https://movie-maniacs.herokuapp.com/movies", {
-      headers: {Authorization: `Bearer ${token}`}
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        // stops loading after response received
-        setLoading(false);
-        console.log('data', data);
-        const moviesFromApi = data.map((movie) => {
-          return {
-          // value names match to API database
-          id: movie._id,
-          title: movie.Title,
-          image: movie.ImagePath,
-          description: movie.Description,
-          genre: movie.Genre.Name,
-          director: movie.Director.Name,
-          release: movie.Release
-          }
-        });
-        setMovies(moviesFromApi);
-      })*/
   }, [token]) 
 
   // user must first either login or signup
