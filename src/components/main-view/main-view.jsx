@@ -1,53 +1,102 @@
-import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { useState, useEffect } from "react";
 import { MovieCard } from "../movie-card/movie-card";
-import { MovieView } from "../movie-view/movie-view";
+import { MovieView } from "../movie-view/movie-view"; 
+import { LoginView } from "../login-view/login-view";
+import { SignupView } from "../signup-view/signup-view";
 
 export const MainView = () => {
+  
+  const storedUser = localStorage.getItem("user") || null;
+  const storedToken = localStorage.getItem("token") || null;
+  const [user, setUser] = useState(storedUser? storedUser : null);
+  const [token, setToken] = useState(storedToken? storedToken : null);
   const [movies, setMovies] = useState([]);
-
-  useEffect(() => {
-    fetch('https://movie-maniacs.herokuapp.com/movies')
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        const moviesFromApi = data.map((movie) => {
-          return {
-            _id: movie._id,
-            Title: movie.Title,
-            Image: movie.ImagePath,   
-            Director: movie.Director.Name,
-            Description: movie.Description,
-            Genre: {
-              name: movie.Genre.Name,
-              description: movie.Genre.Description,
-            },
-            Featured: movie.Featured
-          };
-        });
-        setMovies(moviesFromApi);
-      })
-      .catch((error) => {
-        console.log('Error fetching movies: ', error);
-      });
-  }, []);
-
   const [selectedMovie, setSelectedMovie] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  console.log(sessionStorage);
+  useEffect(() => {
+    // set loading before sending API request
+    setLoading(true);
+    console.log(token)
+      axios
+        .get('https://movie-maniacs.herokuapp.com/movies', {
+          headers: { Authorization: `Bearer ${token}` },
+        })
+        .then((response) => {
+          // Assign the result to the state
+          setMovies(response.data);
+          setLoading(false);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+  }, [token]) 
+
+  // user must first either login or signup
+  if (!user) {
+    return (
+      <>
+        <LoginView onLoggedIn={(user, token) => {
+          setUser(user);
+          setToken(token);
+        }} />
+        or
+        <SignupView />
+      </>
+    )
+  }
+  //const [selectedMovie, setSelectedMovie] = useState(null);
 
   if (selectedMovie) {
     return (
+      <>
+      <button onClick={() => { 
+        setUser(null); 
+        setToken(null); 
+        localStorage.clear();
+      }}
+      > Logout </button>
       <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
+      </>
     );
   }
 
+  // displays text message if list of movies is empty
   if (movies.length === 0) {
-    return <div>The list is empty!</div>;
+    return (
+      <>
+      <button onClick={() => { 
+        setUser(null); 
+        setToken(null); 
+        localStorage.clear();
+      }}
+      > Logout </button>
+      <div>The list is empty!</div>
+    </>
+    );
   }
 
+  // displays movie-card with logout button, if user does not select a movie 
   return (
+    // conditional rendering for loading statment
+    loading ? (
+      <p>Loading...</p>
+    ) : !movies || !movies.length ? (
+      <p>No movies found</p>
+    ) : (
     <div>
+      <button onClick={() => { 
+        setUser(null); 
+        setToken(null); 
+        localStorage.clear();
+      }}
+    > Logout </button>
+
       {movies.map((movie) => (
         <MovieCard
-          key={movie.id}
+          key={movie._id}
           movie={movie}
           onMovieClick={(newSelectedMovie) => {
             setSelectedMovie(newSelectedMovie);
@@ -55,5 +104,5 @@ export const MainView = () => {
         />
       ))}
     </div>
-  );
-};
+  ));
+}
