@@ -4,7 +4,6 @@ import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view"; 
 import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
-import Container from 'react-bootstrap/Container';
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
@@ -37,85 +36,6 @@ export const MainView = () => {
           console.log(error);
         });
   }, [token]) 
-
-  // user must first either login or signup
-  /*if (!user) {
-    return (
-      <>
-        <LoginView onLoggedIn={(user, token) => {
-          setUser(user);
-          setToken(token);
-        }} />
-        or
-        <SignupView />
-      </>
-    )
-  }
-  //const [selectedMovie, setSelectedMovie] = useState(null);
-
-  if (selectedMovie) {
-    return (
-      <>
-      <button onClick={() => { 
-        setUser(null); 
-        setToken(null); 
-        localStorage.clear();
-      }}
-      > Logout </button>
-      <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
-      </>
-    );
-  }
-
-  // displays text message if list of movies is empty
-  if (movies.length === 0) {
-    return (
-      <>
-      <button onClick={() => { 
-        setUser(null); 
-        setToken(null); 
-        localStorage.clear();
-      }}
-      > Logout </button>
-      <div>The list is empty!</div>
-    </>
-    );
-  }
-
-  // displays movie-card with logout button, if user does not select a movie 
-  return (
-    <Row>
-      <Col>
-        // conditional rendering for loading statment
-        loading ? (
-          <p>Loading...</p>
-        ) : !movies || !movies.length ? (
-          <p>No movies found</p>
-        ) : (
-        <div>
-          <button onClick={() => { 
-            setUser(null); 
-            setToken(null); 
-            localStorage.clear();
-          }}
-        > Logout </button>
-
-          {movies.map((movie) => (
-            <MovieCard
-              key={movie._id}
-              movie={movie}
-              onMovieClick={(newSelectedMovie) => {
-                setSelectedMovie(newSelectedMovie);
-              }}
-            />
-          ))}
-        </div>
-      )
-      </Col>
-    </Row>
-    );
-}*/
-
 
 return (
   <Row className='justify-content-md-center'>

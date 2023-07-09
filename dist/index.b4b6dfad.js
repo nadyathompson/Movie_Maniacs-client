@@ -27300,8 +27300,6 @@ var _movieCard = require("../movie-card/movie-card");
 var _movieView = require("../movie-view/movie-view");
 var _loginView = require("../login-view/login-view");
 var _signupView = require("../signup-view/signup-view");
-var _container = require("react-bootstrap/Container");
-var _containerDefault = parcelHelpers.interopDefault(_container);
 var _row = require("react-bootstrap/Row");
 var _rowDefault = parcelHelpers.interopDefault(_row);
 var _col = require("react-bootstrap/Col");
@@ -27337,83 +27335,7 @@ const MainView = ()=>{
     }, [
         token
     ]);
-    // user must first either login or signup
-    /*if (!user) {
-    return (
-      <>
-        <LoginView onLoggedIn={(user, token) => {
-          setUser(user);
-          setToken(token);
-        }} />
-        or
-        <SignupView />
-      </>
-    )
-  }
-  //const [selectedMovie, setSelectedMovie] = useState(null);
-
-  if (selectedMovie) {
-    return (
-      <>
-      <button onClick={() => { 
-        setUser(null); 
-        setToken(null); 
-        localStorage.clear();
-      }}
-      > Logout </button>
-      <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
-      </>
-    );
-  }
-
-  // displays text message if list of movies is empty
-  if (movies.length === 0) {
-    return (
-      <>
-      <button onClick={() => { 
-        setUser(null); 
-        setToken(null); 
-        localStorage.clear();
-      }}
-      > Logout </button>
-      <div>The list is empty!</div>
-    </>
-    );
-  }
-
-  // displays movie-card with logout button, if user does not select a movie 
-  return (
-    <Row>
-      <Col>
-        // conditional rendering for loading statment
-        loading ? (
-          <p>Loading...</p>
-        ) : !movies || !movies.length ? (
-          <p>No movies found</p>
-        ) : (
-        <div>
-          <button onClick={() => { 
-            setUser(null); 
-            setToken(null); 
-            localStorage.clear();
-          }}
-        > Logout </button>
-
-          {movies.map((movie) => (
-            <MovieCard
-              key={movie._id}
-              movie={movie}
-              onMovieClick={(newSelectedMovie) => {
-                setSelectedMovie(newSelectedMovie);
-              }}
-            />
-          ))}
-        </div>
-      )
-      </Col>
-    </Row>
-    );
-}*/ return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _rowDefault.default), {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _rowDefault.default), {
         className: "justify-content-md-center",
         children: !user ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
             md: 4,
@@ -27425,19 +27347,19 @@ const MainView = ()=>{
                     }
                 }, void 0, false, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 124,
+                    lineNumber: 44,
                     columnNumber: 9
                 }, undefined),
                 "or",
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _signupView.SignupView), {}, void 0, false, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 131,
+                    lineNumber: 51,
                     columnNumber: 9
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 123,
+            lineNumber: 43,
             columnNumber: 7
         }, undefined) : selectedMovie ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
             md: 8,
@@ -27446,18 +27368,18 @@ const MainView = ()=>{
                 onBackClick: ()=>setSelectedMovie(null)
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 135,
+                lineNumber: 55,
                 columnNumber: 9
             }, undefined)
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 134,
+            lineNumber: 54,
             columnNumber: 7
         }, undefined) : movies.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
             children: "The list is empty!"
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 141,
+            lineNumber: 61,
             columnNumber: 7
         }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
             children: [
@@ -27471,12 +27393,12 @@ const MainView = ()=>{
                             }
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 149,
+                            lineNumber: 69,
                             columnNumber: 13
                         }, undefined)
                     }, movie.id, false, {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 145,
+                        lineNumber: 65,
                         columnNumber: 11
                     }, undefined)),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
@@ -27488,14 +27410,14 @@ const MainView = ()=>{
                     children: "Logout"
                 }, void 0, false, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 157,
+                    lineNumber: 77,
                     columnNumber: 9
                 }, undefined)
             ]
         }, void 0, true)
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 121,
+        lineNumber: 41,
         columnNumber: 3
     }, undefined);
 };
@@ -27509,7 +27431,7 @@ $RefreshReg$(_c, "MainView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../movie-card/movie-card":"bwuIu","@parcel/transformer-js/src/esmodule-helpers.js":"2JGy1","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4BbEJ","../movie-view/movie-view":"ggaUx","../login-view/login-view":"9YtA0","../signup-view/signup-view":"4OGiN","axios":"jo6P5","react-bootstrap/Row":"cMC39","react-bootstrap/Col":"2L2I6","react-bootstrap/Container":"hEdsw","react-bootstrap/Button":"aPzUt"}],"bwuIu":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../movie-card/movie-card":"bwuIu","@parcel/transformer-js/src/esmodule-helpers.js":"2JGy1","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4BbEJ","../movie-view/movie-view":"ggaUx","../login-view/login-view":"9YtA0","../signup-view/signup-view":"4OGiN","axios":"jo6P5","react-bootstrap/Row":"cMC39","react-bootstrap/Col":"2L2I6","react-bootstrap/Button":"aPzUt"}],"bwuIu":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$67b2 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
