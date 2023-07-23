@@ -42,9 +42,21 @@ export const MainView = () => {
 
 return (
   <BrowserRouter>
+    <Row>
+      <Col>
+        <NavBar
+        user={user}
+        token={token}
+        onLoggedOut={() => {
+          setUser(null);
+          setToken(null);
+          localStorage.clear();
+        }}
+        ></NavBar>
+      </Col>
+    </Row>
     <Row className='justify-content-md-center'>
       <Routes>
-
         <Route
           path="/"
           element={
