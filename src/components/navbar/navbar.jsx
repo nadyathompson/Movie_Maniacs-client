@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import { Nav, Navbar, Container, Button } from "react-bootstrap";
+import { Nav, Navbar } from "react-bootstrap";
 
 export const NavBar = ({user, onLoggedOut}) => {
   return (
@@ -13,11 +13,13 @@ export const NavBar = ({user, onLoggedOut}) => {
             <>
               <Nav.Link as={Link} to={`/`} className="navbar-link">Home</Nav.Link>
               <Nav.Link as={Link} to={`/login`} className="navbar-link">Login</Nav.Link>
+              <Nav.Link as={Link} to={`/signup`} className="navbar-link">Sign Up</Nav.Link>
             </>
           )}
           {user && (
             <>
               <Nav.Link as={Link} to={`/`} className="navbar-link">Home</Nav.Link>
+              <Nav.Link as={Link} to={`/users`} className="navbar-link">Profile</Nav.Link>
               <Nav.Link onClick={onLoggedOut}>Logout</Nav.Link>
             </>
           )}

@@ -35,7 +35,7 @@ export function LoginView(props) {
         .post(url)
         .then((response) => {
           const data = response.data;
-          props.onLoggedIn(data);
+          props.onLoggedIn(data.user, data.token);
         })
         .catch((e) => {
           console.log('no such user');

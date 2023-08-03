@@ -2,10 +2,13 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 
-export const MovieView = ({movies}) => {
+export const MovieView = ({user, storedUser, movies}) => {
     const {movieId} = useParams();
     const movie = movies.find((m) => m._id === movieId);
-    console.log(movieId)
+    console.log(movies)
+    console.log(storedUser)
+    console.log(user)
+    // console.log(token)
 
     return(
         <div>
