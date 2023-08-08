@@ -1,6 +1,7 @@
 //what is wrong with my code
 //updated 8.2.23
-//nothing :)
+//profileView is not updating because of Axios error
+//      (internet says it might be the authorization header)
 
 import axios from "axios";
 import { useState, useEffect } from "react";
@@ -27,13 +28,13 @@ export const MainView = () => {
     user?.FavoriteMovies.includes(m._id)
   );
 
-  console.log(user);
+  //console.log(user);
 
   console.log(sessionStorage);
   useEffect(() => {
     // set loading before sending API request
     setLoading(true);
-    console.log(token);
+    //console.log(token);
     axios
       .get("https://movie-maniacs.herokuapp.com/movies", {
         headers: { Authorization: `Bearer ${token}` },
@@ -154,6 +155,7 @@ export const MainView = () => {
                   <ProfileView
                     storedUser={storedUser}
                     user={user}
+                    token={token}
                     favoriteMovies={favoriteMovies}
                   />
                 ) : (
