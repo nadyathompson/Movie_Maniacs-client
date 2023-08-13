@@ -11,8 +11,11 @@ export const ProfileView = ({ storedUser, user, token, favoriteMovies }) => {
   const [Password, setPassword] = useState("");
   const [Email, setEmail] = useState(user.Email);
   const [Birthday, setBirthday] = useState(user.Birthday);
-  const [user, setUser] = useState();
+  const [pUser, setpUser] = useState();
   const [updatedUser, setUpdatedUser] = useState();
+
+  //let pUser = user;
+  //let setpUser = useState();
 
   useEffect(() => {
     console.log("user", user);
@@ -44,7 +47,7 @@ export const ProfileView = ({ storedUser, user, token, favoriteMovies }) => {
         }
       })
       .then((data) => {
-        setUser(data.user);
+        setpUser(data.user);
         setUpdatedUser(data.user);
       });
   });
@@ -53,15 +56,15 @@ export const ProfileView = ({ storedUser, user, token, favoriteMovies }) => {
     <>
       <Row>
         <Col> User: </Col>
-        <Col>{user.Username}</Col>
+        <Col>{pUser.Username}</Col>
       </Row>
       <Row>
         <Col> Email: </Col>
-        <Col>{user.Email}</Col>
+        <Col>{pUser.Email}</Col>
       </Row>
       <Row>
         <Col> Birthday: </Col>
-        <Col>{user.Birthday}</Col>
+        <Col>{pUser.Birthday}</Col>
       </Row>
       <Row>
         <Col> Favorite Movies: </Col>
@@ -78,13 +81,13 @@ export const ProfileView = ({ storedUser, user, token, favoriteMovies }) => {
         <p>Update your information here:</p>
         <Row>
           <Col> User: </Col>
-          <input type="text" value={user.Username} />
+          <input type="text" value={pUser.Username} />
         </Row>
         <Row>
           <Col> Email: </Col>
           <input
             type="text"
-            value={user.Email}
+            value={pUser.Email}
             onChange={(e) => {
               setUpdatedUser({
                 ...updatedUser,
@@ -95,7 +98,7 @@ export const ProfileView = ({ storedUser, user, token, favoriteMovies }) => {
         </Row>
         <Row>
           <Col> Birthday: </Col>
-          <input type="text" value={user.Birthday} />
+          <input type="text" value={pUser.Birthday} />
         </Row>
         <Row>
           <Col> Favorite Movies: </Col>
