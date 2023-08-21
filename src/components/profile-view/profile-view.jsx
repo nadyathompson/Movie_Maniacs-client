@@ -1,34 +1,30 @@
 import { Row, Col } from "react-bootstrap";
-//import { Form } from "react-bootstrap";
-//import { Button } from "react-bootstrap";
-import { useState, useEffect } from "react";
+import { Form } from "react-bootstrap";
+import { Button } from "react-bootstrap";
+import { useState } from "react";
 
 import { MovieCard } from "../movie-card/movie-card";
-//import { setUser } from "../main-view/main-view";
 
-export const ProfileView = ({ storedUser, user, token, favoriteMovies }) => {
+export const ProfileView = ({ user, setUser, token, favoriteMovies }) => {
   const [Username, setUsername] = useState(user.Username);
   const [Password, setPassword] = useState("");
   const [Email, setEmail] = useState(user.Email);
   const [Birthday, setBirthday] = useState(user.Birthday);
-  const [pUser, setpUser] = useState();
-  const [updatedUser, setUpdatedUser] = useState();
 
-  //let pUser = user;
-  //let setpUser = useState();
+  console.log("data", { user });
 
-  useEffect(() => {
-    console.log("user", user);
-    console.log("updated user", updatedUser);
-  });
+  const updateUser = (event) => {
+    event.preventDefault();
 
-  useEffect(() => {
     const data = {
       Username: Username,
-      Password: Password,
       Email: Email,
       Birthday: Birthday,
     };
+
+    if (Password) {
+      data.Password = Password;
+    }
 
     const url = `https://movie-maniacs.herokuapp.com/users/${user.Username}`;
     fetch(url, {
@@ -41,30 +37,36 @@ export const ProfileView = ({ storedUser, user, token, favoriteMovies }) => {
     })
       .then((response) => {
         if (response.ok) {
+          console.log("user", user);
           return response.json();
         } else {
-          alert("Update failed.");
+          alert("Error :( ");
         }
       })
       .then((data) => {
-        setpUser(data.user);
-        setUpdatedUser(data.user);
+        if (user) {
+          alert("Update successful!");
+          localStorage.setItem("user", JSON.stringify(data));
+          setUser(data);
+        } else {
+          alert("Update failed.");
+        }
       });
-  });
+  };
 
   return (
     <>
       <Row>
         <Col> User: </Col>
-        <Col>{pUser.Username}</Col>
+        <Col>{user?.Username}</Col>
       </Row>
       <Row>
         <Col> Email: </Col>
-        <Col>{pUser.Email}</Col>
+        <Col>{user?.Email}</Col>
       </Row>
       <Row>
         <Col> Birthday: </Col>
-        <Col>{pUser.Birthday}</Col>
+        <Col>{user?.Birthday}</Col>
       </Row>
       <Row>
         <Col> Favorite Movies: </Col>
@@ -79,27 +81,65 @@ export const ProfileView = ({ storedUser, user, token, favoriteMovies }) => {
       <br />
       <Row>
         <p>Update your information here:</p>
-        <Row>
-          <Col> User: </Col>
-          <input type="text" value={pUser.Username} />
-        </Row>
-        <Row>
+        <Form onSubmit={updateUser}>
+          <Form.Group controlId="updateUsername">
+            <Form.Label>Username:</Form.Label>
+            <Form.Control
+              type="text"
+              value={Username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </Form.Group>
+          <Form.Group controlId="updatePassword">
+            <Form.Label>Password:</Form.Label>
+            <Form.Control
+              type="password"
+              value={Password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              minLength="6"
+            />
+          </Form.Group>
+          <Form.Group controlId="updateEmail">
+            <Form.Label>Email:</Form.Label>
+            <Form.Control
+              type="email"
+              value={Email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </Form.Group>
+          <Form.Group controlId="updateBirthday">
+            <Form.Label>Birthday:</Form.Label>
+            <Form.Control
+              type="date"
+              value={Birthday}
+              onChange={(e) => setBirthday(e.target.value)}
+            />
+          </Form.Group>
+          <Button type="submit">Update</Button>
+        </Form>
+
+        {/* <Row>
           <Col> Email: </Col>
           <input
             type="text"
-            value={pUser.Email}
+            value={Email}
             onChange={(e) => {
-              setUpdatedUser({
-                ...updatedUser,
-                Email: e.target.value,
-              });
+              setEmail(e.target.value);
             }}
           />
         </Row>
         <Row>
           <Col> Birthday: </Col>
-          <input type="text" value={pUser.Birthday} />
-        </Row>
+          <input
+            type="text"
+            value={Birthday}
+            onChange={(e) => {
+              setBirthday(e.target.value);
+            }}
+          />
+        </Row> */}
+
         <Row>
           <Col> Favorite Movies: </Col>
           <Col>

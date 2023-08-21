@@ -1,5 +1,6 @@
 //what is wrong with my code
-//updated 8.2.23
+//updated 8.13.23
+//i locked myself out
 //profileView is not updating because of Axios error
 //      (internet says it might be the authorization header)
 
@@ -140,7 +141,11 @@ export const MainView = () => {
                   <Navigate to="/" />
                 ) : (
                   <Col md={4}>
-                    <SignupView />
+                    <SignupView
+                      submitCallBack={() =>
+                        console.log("set a register or whatever var")
+                      }
+                    />
                   </Col>
                 )}
               </>
@@ -155,6 +160,7 @@ export const MainView = () => {
                   <ProfileView
                     storedUser={storedUser}
                     user={user}
+                    setUser={setUser}
                     token={token}
                     favoriteMovies={favoriteMovies}
                   />

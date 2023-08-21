@@ -1,3 +1,4 @@
+import axios from "axios";
 import { Row, Col } from "react-bootstrap";
 
 import { MovieCard } from "../movie-card/movie-card";
@@ -37,7 +38,7 @@ export const ProfileView = ({ storedUser, user, favoriteMovies }) => {
       .then((data) => {
         setUser(data.user);
         setUpdatedUser(data.user);
-        console.log(user);
+        //console.log(user);
       });
   });
 

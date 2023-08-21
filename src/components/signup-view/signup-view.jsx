@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const SignupView = () => {
+export const SignupView = ({ submitCallBack }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -8,33 +8,32 @@ export const SignupView = () => {
 
   // validation of user signup
   const handleSubmit = (event) => {
-
-    event.preventDefault(); 
+    submitCallBack();
+    event.preventDefault();
 
     const data = {
       Username: username,
       Password: password,
       Email: email,
-      Birthday: birthday
+      Birthday: birthday,
     };
 
     fetch("https://movie-maniacs.herokuapp.com/users", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
-        "Content-Type": "application/json"
-      }
+        "Content-Type": "application/json",
+      },
     }).then((response) => {
       if (response.ok) {
         alert("Signup successful");
         window.location.reload();
-
       } else {
         alert("Signup failed");
       }
     });
   };
-  
+
   // signup form with submit button
   return (
     // tells the login API to validate user and password
@@ -79,4 +78,4 @@ export const SignupView = () => {
       <button type="submit">Submit</button>
     </form>
   );
-}; 
+};
