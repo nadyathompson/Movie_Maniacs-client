@@ -1,15 +1,25 @@
 import { Row, Col } from "react-bootstrap";
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import { useState } from "react";
+import { ModalHeader } from "react-bootstrap";
 
 import { MovieCard } from "../movie-card/movie-card";
 
-export const ProfileView = ({ user, setUser, token, favoriteMovies }) => {
+export const ProfileView = ({ user, movies, setUser, token, onLoggedOut }) => {
   const [Username, setUsername] = useState(user.Username);
   const [Password, setPassword] = useState("");
   const [Email, setEmail] = useState(user.Email);
   const [Birthday, setBirthday] = useState(user.Birthday);
+  const [showModal, setShowModal] = useState(false);
+
+  const handleShowModal = () => setShowModal(true);
+  const handleCloseModal = () => setShowModal(false);
+  const favoriteMovies = movies.filter((movie) => {
+    return user.FavoriteMovies.includes(movie._id);
+  });
 
   console.log("data", { user });
 
@@ -54,6 +64,24 @@ export const ProfileView = ({ user, setUser, token, favoriteMovies }) => {
       });
   };
 
+  const deleteUser = () => {
+    const url = `https://movie-maniacs.herokuapp.com/users/${user.Username}`;
+    fetch(url, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    }).then((response) => {
+      if (response.ok) {
+        alert("User deleted");
+        onLoggedOut();
+      } else {
+        alert("Error :( ");
+      }
+    });
+  };
+
   return (
     <>
       <Row>
@@ -72,8 +100,8 @@ export const ProfileView = ({ user, setUser, token, favoriteMovies }) => {
         <Col> Favorite Movies: </Col>
         <Col>
           {favoriteMovies.map((movie) => (
-            <Col>
-              <MovieCard movies={movies} />
+            <Col xs={12} sm={6} md={4} lg={3} key={movie._id}>
+              <MovieCard movie={movie} user={user} token={token} />
             </Col>
           ))}
         </Col>
@@ -118,39 +146,26 @@ export const ProfileView = ({ user, setUser, token, favoriteMovies }) => {
           </Form.Group>
           <Button type="submit">Update</Button>
         </Form>
-
-        {/* <Row>
-          <Col> Email: </Col>
-          <input
-            type="text"
-            value={Email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
-        </Row>
-        <Row>
-          <Col> Birthday: </Col>
-          <input
-            type="text"
-            value={Birthday}
-            onChange={(e) => {
-              setBirthday(e.target.value);
-            }}
-          />
-        </Row> */}
-
-        <Row>
-          <Col> Favorite Movies: </Col>
-          <Col>
-            {favoriteMovies.map((movie) => (
-              <Col>
-                <MovieCard movies={movies} />
-              </Col>
-            ))}
-          </Col>
-        </Row>
       </Row>
+      <Button variant="primary" onClick={handleShowModal}>
+        Delete my account
+      </Button>
+      <Modal show={showModal} onHide={handleCloseModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>Delete account</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          Are you sure you want to delete your account permanantly?
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="primary" onClick={deleteUser}>
+            Yes
+          </Button>
+          <Button variant="secondary" onClick={handleCloseModal}>
+            No
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </>
   );
 };
