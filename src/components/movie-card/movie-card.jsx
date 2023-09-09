@@ -7,7 +7,7 @@ import { Row, Col, Button } from "react-bootstrap";
 import "./movie-card.scss";
 
 export const MovieCard = ({ movie, user, token, setUser }) => {
-  const [favorite, setFavorite] = useState();
+  const [favorite, setFavorite] = useState(false);
 
   useEffect(() => {
     if (user.favoriteMovies && user.favoriteMovies.includes(movie._id)) {

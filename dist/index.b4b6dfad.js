@@ -31569,7 +31569,7 @@ var _movieCardScss = require("./movie-card.scss");
 var _s = $RefreshSig$();
 const MovieCard = ({ movie, user, token, setUser })=>{
     _s();
-    const [favorite, setFavorite] = (0, _react.useState)();
+    const [favorite, setFavorite] = (0, _react.useState)(false);
     (0, _react.useEffect)(()=>{
         if (user.favoriteMovies && user.favoriteMovies.includes(movie._id)) setFavorite(true);
     }, []);
@@ -31692,7 +31692,7 @@ const MovieCard = ({ movie, user, token, setUser })=>{
         columnNumber: 5
     }, undefined);
 };
-_s(MovieCard, "HFbx86BsFwxKZUgd96yEIvIhY4o=");
+_s(MovieCard, "J522ncCSn4LbSzFKTg3+eDoln+g=");
 _c = MovieCard;
 MovieCard.propTypes = {
     movie: (0, _propTypesDefault.default).shape({
@@ -51450,7 +51450,7 @@ const ProfileView = ({ user, movies, setUser, token, onLoggedOut })=>{
                                         type: "password",
                                         value: Password,
                                         onChange: (e)=>setPassword(e.target.value),
-                                        required: true,
+                                        // required
                                         minLength: "6"
                                     }, void 0, false, {
                                         fileName: "src/components/profile-view/profile-view.jsx",
