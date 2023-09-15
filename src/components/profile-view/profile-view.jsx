@@ -2,7 +2,6 @@ import { Row, Col } from "react-bootstrap";
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { Modal } from "react-bootstrap";
-import { Row, Col } from "react-bootstrap";
 import { useState } from "react";
 import { ModalHeader } from "react-bootstrap";
 

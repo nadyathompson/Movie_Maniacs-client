@@ -1,3 +1,12 @@
+//updated 9.4.23
+//trying to change password will change hashed password
+//    to literal string, rendering the user unable to re-login.
+//
+//have to direct user to log in/sign up page after account deletion
+//
+//favorite movies button automatically is set to "add to favorites",
+//    even if it is already in favorites
+
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { MovieCard } from "../movie-card/movie-card";
