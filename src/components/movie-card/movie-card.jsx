@@ -15,7 +15,7 @@ export const MovieCard = ({ movie, user, token, setUser }) => {
     }
   }, []);
 
-  addFavorite = () => {
+  const addFavorite = () => {
     const url = `https://movie-maniacs.herokuapp.com/users/${user.Username}/movies/${movie._id}`;
     fetch(url, {
       method: "POST",
@@ -37,7 +37,7 @@ export const MovieCard = ({ movie, user, token, setUser }) => {
       });
   };
 
-  deleteFavorite = () => {
+  const deleteFavorite = () => {
     const url = `https://movie-maniacs.herokuapp.com/users/${user.Username}/movies/${movie._id}`;
     fetch(url, {
       method: "DELETE",
