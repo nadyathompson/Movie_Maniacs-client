@@ -13,8 +13,10 @@ export const MovieView = ({ user, token, setUser, movies }) => {
     console.log(user);
     if (user.favoriteMovies && user.favoriteMovies.includes(movieId)) {
       setFavorite(true);
+    } else if (user.FavoriteMovies && user.FavoriteMovies.includes(movie._id)) {
+      setFavorite(true);
     }
-  }, []);
+  }, [user, movie]);
 
   const addFavorite = () => {
     const url = `https://movie-maniacs.herokuapp.com/users/${user.Username}/movies/${movie._id}`;

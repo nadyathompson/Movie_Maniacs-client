@@ -1,4 +1,4 @@
-import PropTypes from "prop-types";
+import PropTypes, { string } from "prop-types";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
@@ -12,8 +12,10 @@ export const MovieCard = ({ movie, user, token, setUser }) => {
   useEffect(() => {
     if (user.favoriteMovies && user.favoriteMovies.includes(movie._id)) {
       setFavorite(true);
+    } else if (user.FavoriteMovies && user.FavoriteMovies.includes(movie._id)) {
+      setFavorite(true);
     }
-  }, []);
+  }, [user, movie]);
 
   const addFavorite = () => {
     const url = `https://movie-maniacs.herokuapp.com/users/${user.Username}/movies/${movie._id}`;
@@ -60,24 +62,25 @@ export const MovieCard = ({ movie, user, token, setUser }) => {
   };
 
   return (
-    <Link to={`/movies/${movie._id}`} className="movie-card">
-      <Card className="">
+    //<Link to={`/movies/${movie._id}`} className="movie-card">
+    <Card className="">
+      <Link to={`/movies/${movie._id}`} className="movie-card">
         <Card.Img className="px-3 pt-3" src={movie.ImagePath} />
         <Card.Body>
           <Card.Title className="">{movie.Title}</Card.Title>
           <Card.Text className="">{movie.Genre.Name}</Card.Text>
           <Card.Text className="">Directed By: {movie.Director.Name}</Card.Text>
         </Card.Body>
-        <Card.Footer>
-          {" "}
-          {!favorite ? (
-            <Button onClick={addFavorite}>Add to Favorites</Button>
-          ) : (
-            <Button onClick={deleteFavorite}>Remove from Favorites</Button>
-          )}
-        </Card.Footer>
-      </Card>
-    </Link>
+      </Link>
+      <Card.Footer>
+        {" "}
+        {!favorite ? (
+          <Button onClick={addFavorite}>Add to Favorites</Button>
+        ) : (
+          <Button onClick={deleteFavorite}>Remove from Favorites</Button>
+        )}
+      </Card.Footer>
+    </Card>
   );
 };
 

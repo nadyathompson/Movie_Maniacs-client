@@ -100,7 +100,12 @@ export const ProfileView = ({ user, movies, setUser, token, onLoggedOut }) => {
         <Col>
           {favoriteMovies.map((movie) => (
             <Col xs={12} sm={6} md={4} lg={3} key={movie._id}>
-              <MovieCard movie={movie} user={user} token={token} />
+              <MovieCard
+                movie={movie}
+                user={user}
+                setUser={setUser}
+                token={token}
+              />
             </Col>
           ))}
         </Col>

@@ -70,7 +70,7 @@ export const ProfileView = ({ storedUser, user, favoriteMovies }) => {
         <Col>
           {favoriteMovies.map((movie) => (
             <Col>
-              <MovieCard movies={movies} />
+              <MovieCard movie={movie} />
             </Col>
           ))}
         </Col>
