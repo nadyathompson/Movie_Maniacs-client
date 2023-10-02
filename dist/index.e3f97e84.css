@@ -1,4 +1,6 @@
-
+.movie-card {
+  text-decoration: none;
+}
 
 .my-flix {
   color: #4682b4;
