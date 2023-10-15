@@ -1,5 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
+import { Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export function LoginView(props) {
   const [username, setUsername] = useState("");
@@ -67,6 +69,11 @@ export function LoginView(props) {
         />
       </label>
       <button type="submit">Submit</button>
+      <Row>
+        <Col>
+          Not a user? <Link to="/signup">Sign up here.</Link>
+        </Col>
+      </Row>
     </form>
   );
 }

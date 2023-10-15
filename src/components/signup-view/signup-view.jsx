@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export const SignupView = ({ submitCallBack }) => {
   const [username, setUsername] = useState("");
@@ -76,6 +78,11 @@ export const SignupView = ({ submitCallBack }) => {
         />
       </label>
       <button type="submit">Submit</button>
+      <Row>
+        <Col>
+          Already a user? <Link to="/login">Login here.</Link>
+        </Col>
+      </Row>
     </form>
   );
 };

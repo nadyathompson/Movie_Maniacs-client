@@ -97,7 +97,7 @@ export const ProfileView = ({ user, movies, setUser, token, onLoggedOut }) => {
       </Row>
       <Row>
         <Col> Favorite Movies: </Col>
-        <Col>
+        <Row>
           {favoriteMovies.map((movie) => (
             <Col xs={12} sm={6} md={4} lg={3} key={movie._id}>
               <MovieCard
@@ -108,10 +108,9 @@ export const ProfileView = ({ user, movies, setUser, token, onLoggedOut }) => {
               />
             </Col>
           ))}
-        </Col>
+        </Row>
       </Row>
-      <br />
-      <Row>
+      <Row style={{ padding: 10, marginTop: 40, marginBottom: 20 }}>
         <p>Update your information here:</p>
         <Form onSubmit={updateUser}>
           <Form.Group controlId="updateUsername">
@@ -128,7 +127,7 @@ export const ProfileView = ({ user, movies, setUser, token, onLoggedOut }) => {
               type="password"
               value={Password}
               onChange={(e) => setPassword(e.target.value)}
-              // required
+              required
               minLength="6"
             />
           </Form.Group>
@@ -148,10 +147,16 @@ export const ProfileView = ({ user, movies, setUser, token, onLoggedOut }) => {
               onChange={(e) => setBirthday(e.target.value)}
             />
           </Form.Group>
-          <Button type="submit">Update</Button>
+          <Button style={{ marginTop: 10, marginBottom: 10 }} type="submit">
+            Update
+          </Button>
         </Form>
       </Row>
-      <Button variant="primary" onClick={handleShowModal}>
+      <Button
+        style={{ marginBottom: 20 }}
+        variant="primary"
+        onClick={handleShowModal}
+      >
         Delete my account
       </Button>
       <Modal show={showModal} onHide={handleCloseModal}>
