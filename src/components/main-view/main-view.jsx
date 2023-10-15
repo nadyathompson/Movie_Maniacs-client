@@ -16,8 +16,20 @@ export const MainView = () => {
   const [token, setToken] = useState(storedToken ? storedToken : null);
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [moviesCopy, setMoviesCopy] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
 
-  //console.log(sessionStorage);
+  useEffect(() => {
+    if (searchQuery) {
+      let filteredMovies = movies?.filter((item) => {
+        return item.Title.toLowerCase().includes(searchQuery.toLowerCase());
+      });
+      setMovies(filteredMovies);
+    } else {
+      setMovies(moviesCopy);
+    }
+  }, [searchQuery]);
+
   useEffect(() => {
     // set loading before sending API request
     setLoading(true);
@@ -28,6 +40,7 @@ export const MainView = () => {
       .then((response) => {
         // Assign the result to the state
         setMovies(response.data);
+        setMoviesCopy(response.data);
         setLoading(false);
       })
       .catch(function (error) {
@@ -42,6 +55,7 @@ export const MainView = () => {
           <NavBar
             user={user}
             token={token}
+            setSearchQuery={setSearchQuery}
             onLoggedOut={() => {
               setUser(null);
               setToken(null);
@@ -51,7 +65,7 @@ export const MainView = () => {
         </Col>
       </Row>
 
-      <Row className="justify-content-md-center">
+      <Row className="justify-content-md-left">
         <Routes>
           <Route
             path="/"
@@ -63,6 +77,23 @@ export const MainView = () => {
                   <Col>This list is empty!</Col>
                 ) : (
                   <>
+                    <Row>
+                      <Col>
+                        <input
+                          type="search"
+                          style={{
+                            padding: 10,
+                            marginTop: 20,
+                            marginBottom: 10,
+                            width: "25%",
+                            alignItems: "left",
+                            justifyContent: "left",
+                          }}
+                          placeholder="Search movies"
+                          onChange={(e) => setSearchQuery(e.target.value)}
+                        />
+                      </Col>
+                    </Row>
                     {movies.map((movie) => (
                       <Col className="mb-5" key={movie._id} md={4}>
                         <MovieCard

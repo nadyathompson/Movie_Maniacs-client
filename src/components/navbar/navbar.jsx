@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import { Nav, Navbar } from "react-bootstrap";
 
-export const NavBar = ({ user, onLoggedOut }) => {
+export const NavBar = ({ user, setSearchQuery, onLoggedOut }) => {
   return (
     <Navbar>
       <Navbar.Brand as={Link} to="/">

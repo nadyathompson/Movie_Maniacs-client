@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.scss";
 import Container from "react-bootstrap/Container";
 
-// Main component (will eventually use all the others)
+// Main component
 const Application = () => {
   return (
     <Container>

@@ -62,7 +62,6 @@ export const MovieCard = ({ movie, user, token, setUser }) => {
   };
 
   return (
-    //<Link to={`/movies/${movie._id}`} className="movie-card">
     <Card className="">
       <Link to={`/movies/${movie._id}`} className="movie-card">
         <Card.Img className="px-3 pt-3" src={movie.ImagePath} />
