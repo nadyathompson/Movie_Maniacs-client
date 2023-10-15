@@ -62,21 +62,6 @@ export const MainView = () => {
               localStorage.clear();
             }}
           ></NavBar>
-          {/* {user && (
-            <input
-              type="search"
-              style={{
-                padding: 10,
-                marginTop: 20,
-                marginBottom: 10,
-                width: "25%",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-              placeholder="Search movies"
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-          )} */}
         </Col>
       </Row>
 
